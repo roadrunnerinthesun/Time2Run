@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block title %}
+{% endblock %}
+
+{% block body %}
+
+<div>
+   <h1>Profile Page</h1>
+   {% if user %}
+      <h2>{{user.fname}} {{user.lname}}</h2>
+      <h2>{{user.username}}</h3>
+      <h3>{{user.email}}</h3>
+   {% endif %}
+</div>
+
+{% endblock %}

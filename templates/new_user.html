@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block title%}CREATE ACCOUNT{% endblock %}
+
+
+ {% block body %}
+    <div class="container-fluid">
+        <form id="create-account" action="/new_user" method="POST">
+            First Name  <input type="First Name" placeholder="Jane"  required name="fname">
+            <p></p>
+            Last Name  <input type="Last Name" placeholder="Doe"required name="lname">
+            <p></p>
+            Email  <input type="Email" placeholder="Janedoe@hello.com" required name="email">
+            <p></p>
+            Username <input type="Username" placeholder="callmejane" required name="username">
+            <p></p>
+            Password  <input type="Password" required name="password">
+            <p></p>
+            <button class="btn btn-outline-secondary" type="submit">Create My Account</button>
+        </form>
+    </div>
+{% endblock %}
