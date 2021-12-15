@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block body %}
-<form action="/record_run" method="GET">
+<form action="/record_run" method="POST">
 
     <div class="record" id="record">
     <H1><label><strong>Record Your Run</strong></label></H1>
@@ -27,18 +27,23 @@
    
     <!-- <div class="duration" id="duration"> -->
         <label for="duration">Duration in mins</label>
-        <input type="number" name="time_in_mins" step="1">
+        <input type="number" name="time in mins" step="1">
     <p></p>
     <p></p>
     <!-- <div class="distance" id="distance"> -->
         <label for="distance">Distance of Run</label>
-        <select name="Distance" id="distance">
+        <select name="distance" id="distance">
             <option value="">Select an Option Below</option>
             <option value="light">Less than 1 mile</option>
             <option value="medium">1 - 3 miles </option>
             <option value="hard">3 - 5 miles</option>
             <option value="Extreme">More than 5 miles</option>
         </select>
+        <p></p>
+        <p></p>
+        <label for="date of activity"></label>
+            <option value="">Enter Activity Date</option>
+            <input type="date" name="date of activity">
     <!-- </div> -->
     <p></p>
     <!-- <div> -->

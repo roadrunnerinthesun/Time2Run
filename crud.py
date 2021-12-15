@@ -17,11 +17,11 @@ def get_user_by_email(email):
 
 
 def verify_password(email, password):
-    user = User.query.filter(User.email == email).first()
-    if user is None:
-        return False
+    user = User.query.filter(User.email == email).one()
+    if user.password == password:
+        return user
     else:
-        return user.password == password
+        return None
 
 
 def create_activity(activity_name, time_in_min, distance, date_of_activity):
@@ -31,9 +31,6 @@ def create_activity(activity_name, time_in_min, distance, date_of_activity):
     db.session.commit()
 
 # Do I need to create a CRUD function for my view stats? ---> yes
-
-
-
 
 
 if __name__ == '__main__':

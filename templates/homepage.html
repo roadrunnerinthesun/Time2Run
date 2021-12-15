@@ -20,16 +20,22 @@
 </head>
 
 <body>
+    {% if 'email' in session %}
+      <h3>{{'Welcome Back!'}} {{session['username']}}</h3>
+    {% else %}
+    
+    {% endif %}
 
-  <!-- Nav Bar Spanning across the length of top of screen -->
-  <div id="nav-bar-left">
-    <nav class="nav">
-      <a class="navbar-font" aria-current="page" style="color:darkblue;" href="#">TIME2RUN</a>
-      <a class="nav-link" style="color:darkblue;" href="#">Homepage</a>
-      <a class="nav-link" style="color:darkblue;" href="#">Profile</a>
-      <a class="nav-link" style="color:darkblue;" href="#" >Record Run</a>
-      <a class="nav-link" style="color:darkblue;" href="#" >View Stats</a>
-    </nav>
+  </div>
   </div>
  <!-- Nav Bar Spanning across the length of top of screen -->
  {% endblock %}
+
+
+<!-- Homepage Dashboard -->
+<div>
+</div>    
+
+</body>
+
+</html>
