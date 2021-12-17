@@ -11,12 +11,15 @@ def create_user(email, password, username, fname, lname):
 
     return user
 
-def get_user_by_email(email):
-    return User.query.filter(User.email==email).first()
 
+def get_user_by_email(email):
+    """Return a user by email"""
+    user = User.query.filter(User.email==email).first()
+    return user
 
 
 def verify_password(email, password):
+    """Verify user by email and password"""
     user = User.query.filter(User.email == email).one()
     if user.password == password:
         return user
@@ -24,13 +27,21 @@ def verify_password(email, password):
         return None
 
 
+def get_user_by_username(username):
+    """Return a user by username"""
+
+    user = User.query.filter(User.username == username).first()
+    return user
+
+
 def create_activity(activity_name, time_in_min, distance, date_of_activity):
-    """create new running activity"""
+    """Create and return new running activity"""
     activity = Activity(activity_name=activity_name, time_in_min=time_in_min, distance=distance, date_of_activity=date_of_activity)
     db.session.add(activity)
     db.session.commit()
 
-# Do I need to create a CRUD function for my view stats? ---> yes
+    return activity
+
 
 
 if __name__ == '__main__':

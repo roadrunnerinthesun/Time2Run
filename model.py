@@ -23,9 +23,10 @@ class User(db.Model):
     date_of_birth = db.Column(db.DateTime)
     home_address = db.Column(db.String(100))
 
+    # Many activities to one user
     activity = db.relationship("Activity", back_populates="user")
 
-# repr: produces a string output so we review db entries
+    # repr: produces a string output so we review db entries
     def __repr__(self):
         """show info about user"""
         return f"<User user_id={self.user_id}, username={self.username}, email={self.email}>"
@@ -42,7 +43,7 @@ class Activity(db.Model):
     time_in_min = db.Column(db.Integer)
     activity_name = db.Column(db.String(50))
     
-    
+    # One user many activities
     user = db.relationship("User", back_populates="activity")
     
 

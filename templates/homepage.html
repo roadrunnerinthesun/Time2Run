@@ -22,14 +22,19 @@
 <body>
     {% if 'email' in session %}
       <h3>{{'Welcome Back!'}} {{session['username']}}</h3>
-    {% else %}
-    
+            <ul>{% for item in values %}</ul>
+              <li>Distance:{{item.distance}}</li>
+              <li>Duration:{{item.duration}}</li>
+              <li>Time In Mins:{{item.time_in_mins}}</li>
+              <li>Date of Activity:{{item.date_of_activity}}</li>
+              <p></p>
+      {% endfor %}
     {% endif %}
-
-  </div>
+  <div>
   </div>
  <!-- Nav Bar Spanning across the length of top of screen -->
  {% endblock %}
+
 
 
 <!-- Homepage Dashboard -->
