@@ -4,6 +4,7 @@ from jinja2 import StrictUndefined
 import os, requests, crud, model
 from model import Activity
 
+
 # create instance of a flask web application
 app = Flask(__name__)
 # Required to use Flask sessions
@@ -16,10 +17,77 @@ app.jinja_env.underfined = StrictUndefined
 #                        APP NAVIGATION ROUTES                                #
 ###############################################################################
 
+
+# @app.route('/homepage')
+# def homepage():
+#     """Show homepage."""
+
+#     return render_template('homepage.html', values=Activity.query.all())
+
+
 @app.route('/homepage')
 def homepage():
     """Show homepage."""
+
+    user = crud.get_user_by_username(session.get('username'))
+
+    # print(' ')
+    # print(user)
+    # print(Activity.query.all())
+    # print(user.activities)
+    # print(' ')
+
     return render_template('homepage.html', values=Activity.query.all())
+
+
+
+
+
+# @app.route("/<user_id>-homepage")
+# def display_profile(user_id):
+#     """Display a student profile"""
+
+#     user = User.query.filter(User.user_id == user_id).first()
+
+#     return render_template("homepage.html", user=user)
+
+    # # user = session.get('email')
+    # user = crud.get_user_by_username(session.get('username'))
+    # print (">>>>>>hello>>>>>>>>>>>>", user.activity)
+
+    # return render_template('homepage.html', activity=user.activity)
+
+
+
+# @app.route('/homepage')
+# def homepage():
+#     """Show homepage."""
+
+#     return render_template('homepage.html', values=Activity.query.all())
+
+
+
+###############################################################
+
+# @app.route('/homepage')
+# def homepage():
+#     """Show homepage."""
+
+#     # session['email'] = user.email
+#     email = session['email']
+#     user_activities = crud.get_user_activities(email)
+    
+#     return render_template('homepage.html', get_user_activities=user_activities)
+    
+    
+    
+    ##################################
+    
+    # return render_template('homepage.html', values=Activity.query.filter_by(user=user).all())
+    # return render_template('homepage.html', 
+    #                         values=Activity.query.filter(user=user).all())
+
+
 
 
 @app.route('/registration')
@@ -31,6 +99,7 @@ def registration():
 def show_profile():
     """Shows the profile of the user that is currently in session"""
     user = crud.get_user_by_username(session.get('username'))
+
     return render_template('profile.html', user=user)
 
 
@@ -50,7 +119,21 @@ def run_activity():
     distance = request.form.get('distance')
     date_of_activity = request.form.get('date of activity')
 
-    activity = crud.create_activity(activity_name, time_in_min, distance, date_of_activity)
+    logged_in_email = session.get('email')
+
+    if logged_in_email is None:
+        flash("Log in to record activity")
+        return redirect('/')
+    else:
+        user = crud.get_user_by_email(logged_in_email)
+
+        print('--> User in server run activity')
+        # print(user)
+
+        crud.create_activity(user, activity_name, time_in_min, distance, date_of_activity)
+        print('--> crud: create_activity')
+        # print(user)
+    
     return redirect('/homepage')
 
 
@@ -85,7 +168,7 @@ def user_login():
     user = crud.verify_password(email, password)
     
     if not user:
-        flash("Login details are incorrect, please try again")
+        flash('Login details are incorrect, please try again')
         return redirect('/')
 
     session['email'] = user.email
@@ -108,6 +191,9 @@ def create_new_user():
     
     if user:
         flash ('Email already registered, please log in')
+    elif crud.get_user_by_username(username):
+        flash('Username already is use, please choose another')
+        return render_template ('new_user.html')
     else:
         crud.create_user(email, password, username, fname, lname)
         flash (f"{username} Your Account has been created, please log in")
@@ -117,7 +203,7 @@ def create_new_user():
     return render_template('login.html')
 
 
-@app.route("/logout")
+@app.route('/logout')
 def logout():
     """create a new user"""
     session.clear()

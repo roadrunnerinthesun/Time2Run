@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+  <title>{% block title %}Time2Run{% endblock %}</title>
 <head>
   <!-- Nav Bar Spanning across the length of top of screen -->
   <div id="nav-bar-left">
@@ -11,13 +12,9 @@
       <a class="nav-link" style="color:darkblue;" href="#" >View Stats</a>
       <a class="nav-link" style="color:darkblue;" href="/logout" >Logout</a>
     </nav>
-  <div>    
-    <title>{% block title %}TITLE FOR APP TO BE INSERTED HERE{% endblock %}
-    </title>
-        
+  <div>               
 </head>
 <body>{% block body %} {% endblock %}
-
 <div>
     <!-- Show flashed messages -->
     {% with messages = get_flashed_messages() %}
@@ -27,10 +24,5 @@
         {% endfor %}
     {% endwith %}
 </div>
-
-
-
-
-
 </body>
 </html>

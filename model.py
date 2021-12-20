@@ -14,7 +14,6 @@ class User(db.Model):
     __tablename__ = "users"
 
     user_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    running_activity_id = db.Column(db.Integer, db.ForeignKey("activity.running_activity_id"))
     email = db.Column(db.String, unique=True, nullable=False)
     username = db.Column(db.String, unique=True, nullable=False)
     password = db.Column(db.String(20), nullable=False)
@@ -23,9 +22,9 @@ class User(db.Model):
     date_of_birth = db.Column(db.DateTime)
     home_address = db.Column(db.String(100))
 
-    # Many activities to one user
-    activity = db.relationship("Activity", back_populates="user")
+    # activities = a list of Activity objects
 
+   
     # repr: produces a string output so we review db entries
     def __repr__(self):
         """show info about user"""
@@ -35,21 +34,22 @@ class User(db.Model):
 class Activity(db.Model):
     """Data model for running activity."""
 
-    __tablename__ = "activity"
+    __tablename__ = "activities"
 
     running_activity_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.user_id")) 
     date_of_activity = db.Column(db.DateTime)
     distance = db.Column(db.Float)
     time_in_min = db.Column(db.Integer)
     activity_name = db.Column(db.String(50))
     
     # One user many activities
-    user = db.relationship("User", back_populates="activity")
+    user = db.relationship("User", backref="activities")
     
 
     def __repr__(self):
         """show info about running activity"""
-        return f"<Activity running_activity_id={self.running_activity_id}, activity_name={self.activity_name}>"
+        return f"<Activity running_activity_id={self.running_activity_id}, activity_name={self.activity_name}, user_id={self.user_id}>"
 
 
 def connect_to_db(flask_app, db_uri="postgresql:///Time2Run", echo=True):
