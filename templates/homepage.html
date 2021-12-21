@@ -1,8 +1,6 @@
 <!DOCTYPE html>
-{% extends 'base.html'%}
-{% block head %}
-   
-{% endblock %}
+{% extends 'base.html' %}
+{% block head %}Homepage{% endblock %}
 
 {% block body %}
 <head>
@@ -21,12 +19,14 @@
 
 <body>
     {% if 'email' in session %}
-      <h3>{{'Welcome Back!'}} {{session['username']}}</h3>
-            <ul>{% for item in values %}</ul>
+      <h1>{{'Welcome Back!'}} {{session['username']}}</h1>
+            <ul>{% for item in user.activities %}</ul>
+              <li>Activity Name:{{item.activity_name}}</li>
               <li>Distance:{{item.distance}}</li>
               <li>Duration:{{item.duration}}</li>
               <li>Time In Mins:{{item.time_in_mins}}</li>
-              <li>Date of Activity:{{item.date_of_activity}}</li>
+              <li>Date of Activity:{{item.date_of_activities}}</li>
+              <li>User:{{item.user}}</li> 
               <p></p>
       {% endfor %}
     {% endif %}

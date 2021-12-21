@@ -37,7 +37,10 @@ def verify_password(email, password):
 def get_user_by_username(username):
     """Return a user by username"""
 
-    return User.query.filter(User.username == username).first()
+    return User.query.options(db.joinedload("activities")).filter(User.username == username).first()
+    
+    
+    # user.query.option.joinload
     
 
 def get_activity_by_id(running_activity_id):
