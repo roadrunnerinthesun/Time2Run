@@ -38,7 +38,7 @@ class Activity(db.Model):
 
     running_activity_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("users.user_id")) 
-    date_of_activity = db.Column(db.DateTime)
+    date_of_activity = db.Column(db.Date)
     distance = db.Column(db.Float)
     time_in_min = db.Column(db.Integer)
     activity_name = db.Column(db.String(50))
