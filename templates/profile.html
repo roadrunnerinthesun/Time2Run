@@ -7,7 +7,34 @@
    <h1>Profile Page</h1>
    {% if user %}
       <h2>{{user.fname}} {{user.lname}} | {{user.username}}</h2>   
-   {% else %}
+         
    {% endif %}
 </div>
+
+<head>
+
+
+
+<div class="container user-profile">
+   <form method="post">
+       <div class="row">
+           <div class="col-md-4">
+               <div class="profile-img">
+                   <img src="" alt=""/>
+                   <div class="file btn btn-lg btn-primary">
+                       Change Photo
+                       <input type="file" name="file"/>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </form>           
+</div>
+</head>
+
+ 
+ 
+ 
+
+
 {% endblock %}

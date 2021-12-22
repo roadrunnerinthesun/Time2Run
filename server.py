@@ -23,7 +23,7 @@ def homepage():
 
     user = crud.get_user_by_username(session.get('username'))
     return render_template("homepage.html", user=user)
-     
+    
 
 @app.route('/registration')
 def registration():
@@ -37,6 +37,7 @@ def show_profile():
     """Shows the profile of the user that is currently in session"""
 
     user = crud.get_user_by_username(session.get('username'))
+        
     return render_template('profile.html', user=user)
 
 
@@ -54,7 +55,7 @@ def run_activity():
     """Record a running activity"""
 
     activity_name = request.form.get('activity name')
-    time_in_min = request.form.get('time_in_mins')
+    time_in_min = request.form.get('time in min')
     distance = request.form.get('distance')
     date_of_activity = request.form.get('date of activity')
 
@@ -78,8 +79,11 @@ def view_stats():
 
     # Need to use join for user & activity tables > do you??
 
+    user = crud.get_user_by_username(session.get('username'))
+
+    print(user.activities)
    
-    return render_template('view_stats.html')
+    return render_template('view_stats.html', user=user)
 
 
 ###############################################################################

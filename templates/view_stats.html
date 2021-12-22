@@ -6,8 +6,10 @@
 
 {% block body %}
 <h1><label><strong>Your Running Stats</strong></label></h1>
-
-
-
+    {% if user %}
+      <h2>user activity name:{{activity_name}}</h2>   
+      <h2>SESSION IS WORKING CHECK: {{user.fname}} {{user.lname}} | {{user.username}}</h2>  
+         
+    {% endif %}
 
 {% endblock %}
