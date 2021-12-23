@@ -21,11 +21,11 @@
     {% if 'email' in session %}
       <h1>{{'Welcome Back!'}} {{session['username']}}</h1>
             <ul>{% for item in user.activities %}</ul>
-              <li>Activity Name:{{item.activity_name}}</li>
-              <li>Distance:{{item.distance}}</li>
-              <li>Time In Mins:{{item.time_in_min}}</li>
-              <li>Date of Activity:{{item.date_of_activity}}</li>
-              <li>Check for User:{{item.user}}</li> 
+              <li>Activity Name: {{item.activity_name}}</li>
+              <li>Distance: {{item.distance}}</li>
+              <li>Time In Mins: {{item.time_in_min}}</li>
+              <li>Date of Activity: {{item.date_of_activity}}</li>
+              <li>Check for User: {{item.user}}</li> 
               <p></p>
       {% endfor %}
     {% endif %}

@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 {% extends 'base.html' %}
 {% block title %}View Stats{% endblock %}
-{% block js %}
-{% endblock %}
+{% block js %}{% endblock %}
 
 {% block body %}
 <h1><label><strong>Your Running Stats</strong></label></h1>
     {% if user %}
-      <h2>user activity name:{{activity_name}}</h2>   
-      <h2>SESSION IS WORKING CHECK: {{user.fname}} {{user.lname}} | {{user.username}}</h2>  
-         
+        <h2>Total Distance: {{ total_distance }}</h2>
+        <h2>Total Time in minutes: {{ total_time }}</h2>            
     {% endif %}
 
 {% endblock %}

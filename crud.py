@@ -40,13 +40,11 @@ def get_user_by_username(username):
     return User.query.options(db.joinedload("activities")).filter(User.username == username).first()
     
     
-    # user.query.option.joinload
-    
-
 def get_activity_by_id(running_activity_id):
     """Return a running activity by primary key."""
 
     return Activity.query.get(running_activity_id)
+
 
 
 def create_activity(user, activity_name, time_in_min, distance, date_of_activity):
@@ -59,8 +57,31 @@ def create_activity(user, activity_name, time_in_min, distance, date_of_activity
 
     return activity
 
-# def user_profile(username, fname, lname):
-#     user_profile = Activity.query.options(db.joinedload("user")).order_by(User.fname).all()
+
+def calculate_total_distance(username):
+    """Calculate the total distance by user."""
+    
+    user = get_user_by_username(username)
+
+    total_distance = 0
+
+    for activity in user.activities:
+        total_distance = total_distance + activity.distance
+    
+    return total_distance
+
+def calculate_total_time(username):
+    """Calculate the total distance by user."""
+    
+    user = get_user_by_username(username)
+
+    total_time = 0
+
+    for activity in user.activities:
+        total_time = total_time + activity.time_in_min
+    
+    return total_time
+
 
 ############################################################################################################################33
 
