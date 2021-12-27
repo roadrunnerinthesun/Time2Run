@@ -5,6 +5,7 @@
 {% block body %}
 <head>
 
+  
 
   <!-- Load Bootstrap -->
     <!-- CSS only -->
@@ -21,14 +22,15 @@
     {% if 'email' in session %}
       <h1>{{'Welcome Back!'}} {{session['username']}}</h1>
             <ul>{% for item in user.activities %}</ul>
-              <li>Activity Name: {{item.activity_name}}</li>
-              <li>Distance: {{item.distance}}</li>
-              <li>Time In Mins: {{item.time_in_min}}</li>
-              <li>Date of Activity: {{item.date_of_activity}}</li>
-              <li>Check for User: {{item.user}}</li> 
+            Activity Name: {{item.activity_name}}</li>
+              <li>Distance: {{item.distance}} miles</li>
+              <li>Time In Mins: {{item.time_in_min}} minutes</li>
+              <li>Date of Activity: {{item.date_of_activity.strftime('%a, %B %d, %Y')}}</li>
+            CHECK for User: {{item.user}}</li> 
               <p></p>
       {% endfor %}
     {% endif %}
+    
   <div>
   </div>
  <!-- Nav Bar Spanning across the length of top of screen -->
