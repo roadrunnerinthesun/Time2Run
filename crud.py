@@ -1,6 +1,7 @@
 """CRUD operations"""
 
 from model import db, User, Activity, connect_to_db
+from datetime import datetime
 
 
 def create_user(email, password, username, fname, lname):
@@ -49,8 +50,7 @@ def get_activity_by_id(running_activity_id):
 
 def create_activity(user, activity_name, time_in_min, distance, date_of_activity):
     """Create and return new running activity"""
-    print('--> User in create_activity')
-    print(user)
+
     activity = Activity(user=user, activity_name=activity_name, time_in_min=time_in_min, distance=distance, date_of_activity=date_of_activity)
     db.session.add(activity)
     db.session.commit()
@@ -71,7 +71,7 @@ def calculate_total_distance(username):
     return total_distance
 
 def calculate_total_time(username):
-    """Calculate the total distance by user."""
+    """Calculate the total time by user."""
     
     user = get_user_by_username(username)
 
@@ -81,6 +81,29 @@ def calculate_total_time(username):
         total_time = total_time + activity.time_in_min
     
     return total_time
+
+
+# def get_activity_by_type_by_user(username):
+#     """Return a user by username"""
+
+#     return User.query.options(db.joinedload("activities")).filter(User.username == username).first()
+#     return User.query.options(db.joinedload("activities")).filter(User.username == username, activity_name='Run').all()
+
+#     return User.query.options(db.joinedload("activities")).filter_by(activity_name='Run').all() #works for all runs for all users
+
+# activity = Activity.query.filter_by(activity_name='Run').all()
+
+
+# def update_user_date_of_birth(username, date_of_birth):
+#     """Update user date of birth."""
+    
+#     user = get_user_by_username(username)
+#     user.date_of_birth = date_of_birth
+#     db.session.commit()
+
+#     return user
+
+
 
 
 ############################################################################################################################33
