@@ -6,8 +6,10 @@
 {% block body %}
 <h1><label><strong>Your Running Stats</strong></label></h1>
     {% if user %}
-        <h2>Total Distance: {{ total_distance }}</h2>
-        <h2>Total Time in minutes: {{ total_time }}</h2>            
+        <h2>Total Distance: {{ total_distance }} miles</h2>
+        <h2>Total Time in minutes: {{ total_time }} minutes</h2>   
+        <h2>Total Distance for 7 days: {{ seven_days_ago_from_today}} miles</h2>      
+           
     {% endif %}
 
 {% endblock %}
