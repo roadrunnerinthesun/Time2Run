@@ -5,17 +5,10 @@
 {% block body %}
 <div>
    <h1>Profile Page</h1>
-   {% if user %}
-      <h2>{{user.fname}} {{user.lname}} | {{user.username}}</h2>   
-         
-   {% endif %}
-</div>
 
 <head>
 
-
-
-<div class="container user-profile">
+<!-- <div class="container user-profile">
    <form method="post">
        <div class="row">
            <div class="col-md-4">
@@ -29,12 +22,40 @@
            </div>
        </div>
    </form>           
-</div>
+</div> -->
+
 </head>
 
- 
- 
- 
+<h4>First Name: {{user.fname}} </h4>
+<h4>Last Name: {{user.lname}} </h4>
+<h4>Username: {{user.username}} </h4>
+<div>
+<h4>Password:
+        {% for letter in user.password %}
+            *
+        {% endfor %}</h4>      
+</div>
+<h4>Date of Birth  <input id="dob" type="date" placeholder="mm/dd/yyy" min="01-01-1900" max="today" name="dob"></h4>
+
+
+    
+<body>
+<script>
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1; 
+    var yyyy = today.getFullYear();
+    
+    if (dd < 10) {
+       dd = '0' + dd;
+    }
+    if (mm < 10) {
+       mm = '0' + mm;
+    }    
+    today = yyyy + '-' + mm + '-' + dd;
+    document.getElementById("dob").setAttribute("max", today);
+</script>
+</body>
 
 
 {% endblock %}
