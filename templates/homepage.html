@@ -19,6 +19,10 @@
 </head>
 
 <body>
+
+</body>
+
+<body>
     {% if 'email' in session %}
       <h1>{{'Welcome Back!'}} {{session['username']}}</h1>
             <ul>{% for item in user.activities %}</ul>
@@ -26,7 +30,6 @@
               <li>Distance: {{item.distance}} miles</li>
               <li>Time In Mins: {{item.time_in_min}} minutes</li>
               <li>Date of Activity: {{item.date_of_activity.strftime('%a, %B %d, %Y')}}</li>
-            CHECK for User: {{item.user}}</li> 
               <p></p>
       {% endfor %}
     {% endif %}
@@ -36,10 +39,9 @@
  <!-- Nav Bar Spanning across the length of top of screen -->
  {% endblock %}
 
-
-
 <!-- Homepage Dashboard -->
 <div>
+  
 </div>    
 
 </body>
