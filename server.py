@@ -3,6 +3,8 @@ from flask import Flask, render_template, request, flash, redirect, session
 from jinja2 import StrictUndefined
 import os, requests, crud, model
 from model import Activity
+import re
+from datetime import datetime, timedelta
 
 
 # create instance of a flask web application
@@ -23,7 +25,7 @@ def homepage():
 
     user = crud.get_user_by_username(session.get('username'))
     return render_template("homepage.html", user=user)
-    
+
 
 @app.route('/registration')
 def registration():
@@ -37,6 +39,8 @@ def show_profile():
     """Shows the profile of the user that is currently in session"""
 
     user = crud.get_user_by_username(session.get('username'))
+    # date_of_birth = request.form.get('dob')
+    # crud.update_user_date_of_birth(user, date_of_birth)
         
     return render_template('profile.html', user=user)
 
@@ -115,6 +119,24 @@ def run_activity():
 
 
 
+# @app.route('/view_stats')
+# def view_stats():
+#     """View results of users running activity."""
+
+#     # existing user<> activity join w/crud function get_user_by_username
+
+#     user = crud.get_user_by_username(session.get('username'))
+
+#     total_distance = crud.calculate_total_distance(session.get('username'))
+#     total_time = crud.calculate_total_time(session.get('username'))
+
+#     seven_day_distance = crud.calculate_total_distance(session.get('username')) 
+#     tot = int(seven_day_distance/3)
+#     return render_template('view_stats.html', user=user, 
+#                                               total_distance=total_distance,
+#                                               total_time=total_time,
+#                                               tot=tot)
+
 @app.route('/view_stats')
 def view_stats():
     """View results of users running activity."""
@@ -123,12 +145,18 @@ def view_stats():
 
     user = crud.get_user_by_username(session.get('username'))
 
+    now = datetime.now()
+
+
     total_distance = crud.calculate_total_distance(session.get('username'))
     total_time = crud.calculate_total_time(session.get('username'))
-   
+    seven_days_ago = timedelta(days=-7) 
+    seven_days_ago_from_today = now + seven_days_ago
+
     return render_template('view_stats.html', user=user, 
                                               total_distance=total_distance,
-                                              total_time=total_time)
+                                              total_time=total_time,
+                                              seven_days_ago_from_today=seven_days_ago_from_today)
 
 
 
