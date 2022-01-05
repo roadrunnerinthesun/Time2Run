@@ -49,7 +49,7 @@ class Activity(db.Model):
 
     def __repr__(self):
         """show info about running activity"""
-        return f"<Activity running_activity_id={self.running_activity_id}, activity_name={self.activity_name}, user_id={self.user_id}>"
+        return f"<Activity running_activity_id={self.running_activity_id}, activity_name={self.activity_name}, user_id={self.user_id}, date_of_activity={self.date_of_activity}, distance={self.distance}, time_in_min={self.time_in_min}>"
 
 
 def connect_to_db(flask_app, db_uri="postgresql:///Time2Run", echo=True):
