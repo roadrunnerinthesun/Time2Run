@@ -1,7 +1,7 @@
 """CRUD operations"""
 
 from model import db, User, Activity, connect_to_db
-from datetime import datetime
+from datetime import datetime, timedelta
 
 
 def create_user(email, password, username, fname, lname):
@@ -83,13 +83,16 @@ def calculate_total_time(username):
     return total_time
 
 
+
+
+
 # def get_activity_by_type_by_user(username):
 #     """Return a user by username"""
 
 #     return User.query.options(db.joinedload("activities")).filter(User.username == username).first()
 #     return User.query.options(db.joinedload("activities")).filter(User.username == username, activity_name='Run').all()
 
-#     return User.query.options(db.joinedload("activities")).filter_by(activity_name='Run').all() #works for all runs for all users
+    # return User.query.options(db.joinedload("activities")).filter_by(activity_name='Run').all() #works for all runs for all users
 
 # activity = Activity.query.filter_by(activity_name='Run').all()
 
@@ -110,7 +113,8 @@ def calculate_total_time(username):
 
 # def get_user_id(user_id, running_activity_id):
 #     """Return primary key from User"""
-#     user = User.query.filter(User.user_id==user_id, User.running_activity_id==running_activity_id).first()
+#     user = User.query.filter(User.user_id==user_id, User.running_activity_id
+# running_activity_id).first()
 #     return user.running_activity_id    
 
 
@@ -120,6 +124,58 @@ def calculate_total_time(username):
 #     user = User.query.filter(User.user_id==user_id).one()
 #     return user.activity
 
+
+def seven_day_distance(username):
+
+    # TODO need the current the date
+
+    # date = datetime.date
+    user = User.query.filter(User.username == username).one()
+    # user.
+    now = datetime.now()
+    seven_days_ago = timedelta(days=-7) 
+    seven_days_ago_from_today = now + seven_days_ago
+    
+    seven = Activity.query.filter(Activity.user_id == user.user_id,
+                                Activity.date_of_activity < now, 
+                                Activity.date_of_activity > seven_days_ago_from_today).all()
+  
+    
+    return seven
+
+
+def fourteen_day_distance(username):
+
+    user = User.query.filter(User.username == username).one()
+    
+    now = datetime.now()
+    fourteen_days_ago = timedelta(days=-14) 
+    fourteen_days_ago_from_today = now + fourteen_days_ago
+    
+    fourteen = Activity.query.filter(Activity.user_id == user.user_id,
+                                Activity.date_of_activity < now, 
+                                Activity.date_of_activity > fourteen_days_ago_from_today).all()
+
+    
+    return fourteen
+    
+
+def thirty_day_distance(username):
+
+    user = User.query.filter(User.username == username).one()
+
+    user = User.query.filter(User.username == username).one()
+
+    now = datetime.now()
+    thirty_days_ago = timedelta(days=-30) 
+    thirty_days_ago_from_today = now + thirty_days_ago
+    
+    thirty = Activity.query.filter(Activity.user_id == user.user_id,
+                                Activity.date_of_activity < now, 
+                                Activity.date_of_activity > thirty_days_ago_from_today).all()
+
+    
+    return thirty
 
 
 
