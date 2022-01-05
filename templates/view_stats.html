@@ -6,9 +6,20 @@
 {% block body %}
 <h1><label><strong>Your Running Stats</strong></label></h1>
     {% if user %}
-        <h2>Total Distance: {{ total_distance }} miles</h2>
-        <h2>Total Time in minutes: {{ total_time }} minutes</h2>   
-        <h2>Total Distance for 7 days: {{ seven_days_ago_from_today}} miles</h2>      
+        <h2>Total Distance:<em> {{ total_distance }} miles</em></h2>
+        <h2>Total Time in minutes:<em> {{ total_time }} minutes</em></h2>   
+        <h2>Total Distance for 7 days:<em> miles</em></h2>    
+            {% for miles in one_week %}       
+                {{miles.distance}}
+            {% endfor %}
+        <h2>Total Distance for 14 days:<em> {{ two_weeks }} miles</em></h2>
+            {% for miles in two_weeks %}       
+                {{miles.distance}}
+            {% endfor %}
+        <h2>Total Distance for 30 days:<em> {{ four_weeks }} miles</em></h2>
+            {% for miles in four_weeks %}       
+                {{miles.distance}}
+            {% endfor %} 
            
     {% endif %}
 
