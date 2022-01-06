@@ -77,93 +77,33 @@ def run_activity():
 
 
 
-# @app.route('/view_stats')
-# def view_stats():
-#     """View results of users running activity."""
-
-#     # Need to use join for user & activity tables > do you??
-
-#     user = crud.get_user_by_username(session.get('username'))
-
-#     fast_walk = 0
-#     light_jog = 0
-#     run = 0
-#     sprint = 0
-
-
-#     for activity_name in user.activities:
-#         if activity_name == 'Light Jog':
-#             light_jog += 1
-#             return (light_jog)
-#             print('activity name', activity_name)
-#             print('counter value', light_jog)
-#         if activity_name == 'fast walk':
-#             fast_walk += 1
-#             return (fast_walk)
-#         if activity_name == 'run':
-#             run += 1
-#             return (run)
-#         if activity_name == 'sprint':
-#             sprint += 1
-#             return (sprint)
-    
-
-#     print('checking activities are being logged >', user.activities)
-   
-#     return render_template('view_stats.html', user=user, 
-#                                             light_jog=light_jog, 
-#                                             fast_walk=fast_walk,
-#                                             run=run,
-#                                             sprint=sprint)
-
-
+# Helper function required to obtain total for distance from list of activities
+def get_total_distance(activity_list):
+    total = 0
+    for activity in activity_list:
+        total = total+activity.distance
+    return total
 
 
 @app.route('/view_stats')
 def view_stats():
     """View results of users running activity."""
 
-    # existing user<> activity join w/crud function get_user_by_username
-
     user = crud.get_user_by_username(session.get('username'))
 
     total_distance = crud.calculate_total_distance(session.get('username'))
     total_time = crud.calculate_total_time(session.get('username'))
-    one_week = crud.seven_day_distance(session.get('username'))
-    two_weeks = crud.fourteen_day_distance(session.get('username'))
-    four_weeks = crud.thirty_day_distance(session.get('username'))
-    # seven_day_distance = crud.calculate_total_distance(session.get('username')) 
-    # tot = int(seven_day_distance/3)
+    
+    one_week = get_total_distance(crud.seven_day_distance(session.get('username')))
+    two_weeks = get_total_distance(crud.fourteen_day_distance(session.get('username')))
+    four_weeks = get_total_distance(crud.thirty_day_distance(session.get('username')))
+
     return render_template('view_stats.html', user=user, 
                                               total_distance=total_distance,
                                               total_time=total_time,
                                               one_week=one_week,
                                               two_weeks=two_weeks,
                                               four_weeks=four_weeks)
-
-# @app.route('/view_stats')
-# def view_stats():
-#     """View results of users running activity."""
-
-#     # existing user<> activity join w/crud function get_user_by_username
-
-#     user = crud.get_user_by_username(session.get('username'))
-
-#     now = datetime.now()
-
-
-#     total_distance = crud.calculate_total_distance(session.get('username'))
-#     total_time = crud.calculate_total_time(session.get('username'))
-#     seven_days_ago = timedelta(days=-7) 
-#     seven_days_ago_from_today = now + seven_days_ago
-
-#     return render_template('view_stats.html', user=user, 
-#                                               total_distance=total_distance,
-#                                               total_time=total_time,
-#                                               seven_days_ago_from_today=seven_days_ago_from_today)
-
-
-
 
 
 ###############################################################################
