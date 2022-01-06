@@ -24,6 +24,10 @@ def homepage():
     """Show homepage"""
 
     user = crud.get_user_by_username(session.get('username'))
+    if user is None:
+        flash('Please log in to view your homepage')
+        return redirect('/')
+
     return render_template("homepage.html", user=user)
 
 
@@ -39,18 +43,25 @@ def show_profile():
     """Shows the profile of the user that is currently in session"""
 
     user = crud.get_user_by_username(session.get('username'))
-    # date_of_birth = request.form.get('dob')
-    # crud.update_user_date_of_birth(user, date_of_birth)
+    
+    if user is None:
+        flash('Please log in to view your profile')
+        return redirect('/')
         
     return render_template('profile.html', user=user)
-
 
 
 @app.route('/record_run')
 def record_run():
     """Record a running activity"""
 
-    return render_template('record_run.html')
+    user = crud.get_user_by_username(session.get('username'))
+    
+    if user is None:
+        flash('Please log in to record your run')
+        return redirect('/')
+
+    return render_template('record_run.html', user=user)
 
 
 
@@ -91,12 +102,19 @@ def view_stats():
 
     user = crud.get_user_by_username(session.get('username'))
 
-    total_distance = crud.calculate_total_distance(session.get('username'))
-    total_time = crud.calculate_total_time(session.get('username'))
-    
-    one_week = get_total_distance(crud.seven_day_distance(session.get('username')))
-    two_weeks = get_total_distance(crud.fourteen_day_distance(session.get('username')))
-    four_weeks = get_total_distance(crud.thirty_day_distance(session.get('username')))
+    if user is None:
+        flash('Please log in to view your stats')
+        return redirect('/')
+
+    else:
+        total_distance = crud.calculate_total_distance(session.get('username'))
+        total_time = crud.calculate_total_time(session.get('username'))
+
+        
+        
+        one_week = get_total_distance(crud.seven_day_distance(session.get('username')))
+        two_weeks = get_total_distance(crud.fourteen_day_distance(session.get('username')))
+        four_weeks = get_total_distance(crud.thirty_day_distance(session.get('username')))
 
     return render_template('view_stats.html', user=user, 
                                               total_distance=total_distance,
