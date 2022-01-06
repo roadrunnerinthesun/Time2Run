@@ -127,11 +127,8 @@ def calculate_total_time(username):
 
 def seven_day_distance(username):
 
-    # TODO need the current the date
-
-    # date = datetime.date
     user = User.query.filter(User.username == username).one()
-    # user.
+
     now = datetime.now()
     seven_days_ago = timedelta(days=-7) 
     seven_days_ago_from_today = now + seven_days_ago
@@ -140,7 +137,7 @@ def seven_day_distance(username):
                                 Activity.date_of_activity < now, 
                                 Activity.date_of_activity > seven_days_ago_from_today).all()
   
-    
+    # returns a list of activities over 7 day parameter
     return seven
 
 
@@ -156,13 +153,11 @@ def fourteen_day_distance(username):
                                 Activity.date_of_activity < now, 
                                 Activity.date_of_activity > fourteen_days_ago_from_today).all()
 
-    
+    # returns a list of activities over 14 day parameter
     return fourteen
     
 
 def thirty_day_distance(username):
-
-    user = User.query.filter(User.username == username).one()
 
     user = User.query.filter(User.username == username).one()
 
@@ -174,7 +169,7 @@ def thirty_day_distance(username):
                                 Activity.date_of_activity < now, 
                                 Activity.date_of_activity > thirty_days_ago_from_today).all()
 
-    
+    # returns a list of activities over 30 day parameter
     return thirty
 
 
