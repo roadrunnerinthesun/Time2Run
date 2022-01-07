@@ -6,26 +6,6 @@
 <div>
    <h1>Profile Page</h1>
 
-<head>
-
-<!-- <div class="container user-profile">
-   <form method="post">
-       <div class="row">
-           <div class="col-md-4">
-               <div class="profile-img">
-                   <img src="" alt=""/>
-                   <div class="file btn btn-lg btn-primary">
-                       Change Photo
-                       <input type="file" name="file"/>
-                   </div>
-               </div>
-           </div>
-       </div>
-   </form>           
-</div> -->
-
-</head>
-
 <h4>First Name: {{user.fname}} </h4>
 <h4>Last Name: {{user.lname}} </h4>
 <h4>Username: {{user.username}} </h4>
@@ -33,9 +13,20 @@
 <h4>Password:
         {% for letter in user.password %}
             *
-        {% endfor %}</h4>      
+        {% endfor %}</h4>
 </div>
-<h4>Date of Birth  <input id="dob" type="date" placeholder="mm/dd/yyy" min="01-01-1900" max="today" name="dob"></h4>
+<h4>Date of Birth: {{user.date_of_birth.strftime('%B %d, %Y')}} </h4>
+<form id="profile" action="/profile" method="POST">
+    <p>Date of Birth  <input id="date_of_birth" type="date" placeholder="mm/dd/yyy" min="01-01-1900" max="today" name="date_of_birth"></p>
+
+<br>
+<div>
+    <input class="btn btn-light" type="submit" value="Save Edits" name="edit" id="save">
+</form>
+    <!-- <input class="btn btn-light" type="submit" value="Change Password" name="pw" id="password"> -->
+</div>
+</br>
+</div>
 
 
     
