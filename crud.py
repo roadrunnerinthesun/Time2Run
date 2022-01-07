@@ -12,8 +12,23 @@ def create_user(email, password, username, fname, lname):
 
     return user
 
+
+def update_date_of_birth(user, date_of_birth):
+    """Update users date of birth in user table"""
+
+    for key, value in date_of_birth.items():
+        if value is not "" or value is not None: 
+            setattr(user, key, value)
+
+        # db.session.add(user)
+        db.session.commit() # persists updates in database
+
+    return user
+
+
+
 def get_user_by_id(user_id):
-    """Return a user by primary key."""
+    """Return user object by id."""
 
     return User.query.get(user_id)
 
@@ -33,6 +48,7 @@ def verify_password(email, password):
         return verified
     else:
         return None
+
 
 
 def get_user_by_username(username):
@@ -56,6 +72,7 @@ def create_activity(user, activity_name, time_in_min, distance, date_of_activity
     db.session.commit()
 
     return activity
+
 
 
 def calculate_total_distance(username):
@@ -95,16 +112,6 @@ def calculate_total_time(username):
     # return User.query.options(db.joinedload("activities")).filter_by(activity_name='Run').all() #works for all runs for all users
 
 # activity = Activity.query.filter_by(activity_name='Run').all()
-
-
-# def update_user_date_of_birth(username, date_of_birth):
-#     """Update user date of birth."""
-    
-#     user = get_user_by_username(username)
-#     user.date_of_birth = date_of_birth
-#     db.session.commit()
-
-#     return user
 
 
 
