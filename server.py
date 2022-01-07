@@ -57,6 +57,10 @@ def show_profile():
 
     user = crud.get_user_by_username(session.get('username'))
 
+    if user is None:
+        flash('Please log in to view your profile')
+        return redirect('/')
+
 
     if request.method == 'POST':
         
@@ -69,41 +73,6 @@ def show_profile():
         return render_template('profile.html', user=updated_date_of_birth)
 
     return render_template('profile.html', user=user)
-    
-
-
-
-    # date_of_birth= request.form.get('date_of_birth')
-    # crud.update_date_of_birth(user, date_of_birth)
-
-    # flash('PROFILE UPDATED')
-    # return render_template('profile.html', user=user)
- 
-    # if user is None:
-    #     flash('Please log in to view your profile')
-    #     return redirect('/')
-
-    # if request.method == 'POST':
-        
-        
-
-        
-        
-
-    # return render_template('profile.html', user=user)
-    
-    # if user is None:
-    #     flash('Please log in to view your profile')
-    #     return redirect('/')
-
-    # if request.method == 'POST':
-    #     # get user entry from form
-    #     date_of_birth = request.form.get('date_of_birth')
-    #     crud.update_date_of_birth(date_of_birth)
-    #     flash("Your date of birth has been saved to your profile")
-
-    # return render_template('profile.html', user=user)
-
 
 
 @app.route('/record_run')
