@@ -19,16 +19,27 @@ class User(db.Model):
     password = db.Column(db.String(20), nullable=False)
     fname = db.Column(db.String(30), nullable=False)
     lname = db.Column(db.String(30), nullable=False)
-    date_of_birth = db.Column(db.DateTime)
+    date_of_birth = db.Column(db.Date)
     home_address = db.Column(db.String(100))
 
     # activities = a list of Activity objects
 
-   
+    # @staticmethod # can call without having to create an object beforehand, no self object passed
+    # def update_date_of_birth(self, date_of_birth):
+    #     """updates the users date of birth in the database"""
+
+    #     update_date_of_birth = User.date_of_birth(date_of_birth) 
+
+    #     self.date_of_birth = update_date_of_birth
+    #     db.session.commit() # have updated dob data persist in database
+
+
     # repr: produces a string output so we review db entries
     def __repr__(self):
         """show info about user"""
-        return f"<User user_id={self.user_id}, username={self.username}, email={self.email}>"
+        return f"<User user_id={self.user_id}, username={self.username}, email={self.email}, date_of_birth={self.date_of_birth}>>"
+
+
 
 
 class Activity(db.Model):
