@@ -11,18 +11,27 @@
 <h4>Username: {{user.username}} </h4>
 <div>
 <h4>Password:
-        {% for letter in user.password %}
-            *
-        {% endfor %}</h4>
+    {% for letter in user.password %}
+        *
+    {% endfor %}</h4>
 </div>
-<h4>Date of Birth: {{user.date_of_birth.strftime('%B %d, %Y')}} </h4>
-<form id="profile" action="/profile" method="POST">
-    <p>Date of Birth  <input id="date_of_birth" type="date" placeholder="mm/dd/yyy" min="01-01-1900" max="today" name="date_of_birth"></p>
+<h4>Date of Birth: 
+    {% if user.date_of_birth == None: %}
+        Please update!
+        <form id="profile" action="/profile" method="POST">
+            <p>Date of Birth  <input id="date_of_birth" type="date" placeholder="mm/dd/yyy" min="01-01-1900" max="today" required name="date_of_birth"></p>
+            <br>
+            <div>
+        </form>
+        <input class="btn btn-light" type="submit" value="Save Edits" required name="edit" id="save">
+    {% else %}
+        {{user.date_of_birth.strftime('%B, %d %Y')}} 
+    {% endif %}</h4>
 
-<br>
-<div>
-    <input class="btn btn-light" type="submit" value="Save Edits" name="edit" id="save">
-</form>
+
+
+
+    
     <!-- <input class="btn btn-light" type="submit" value="Change Password" name="pw" id="password"> -->
 </div>
 </br>
