@@ -5,6 +5,7 @@ import os, requests, crud, model
 from model import Activity
 import re
 from datetime import datetime, timedelta
+import random
 
 
 # create instance of a flask web application
@@ -19,6 +20,13 @@ app.jinja_env.underfined = StrictUndefined
 #                        APP NAVIGATION ROUTES                                #
 ###############################################################################
 
+RANDOM_RUN = [
+    "Run | <b>Life is short. Running makes it seem longer</b>.",
+    "Sprint | <b>Most people never run far enough on their first wind to find out they've got a second</b>.",
+    "Fast Walk | <b>All truly great thoughts are conceived while walking</b>.",
+    "Light Jog | <b>Jogging is very beneficial. It's good for your legs and your feet. It's also very good for the ground. It makes it feel needed</b>.",
+]
+
 @app.route('/homepage')
 def homepage():
     """Show homepage"""
@@ -27,28 +35,22 @@ def homepage():
     if user is None:
         flash('Please log in to view your homepage')
         return redirect('/')
-
+    
     return render_template("homepage.html", user=user)
 
+
+@app.route('/random_run')
+def fortune():
+    """Return a Random_Run as a text string on users homepage"""
+
+    return random.choice(RANDOM_RUN)
+    
 
 @app.route('/registration')
 def registration():
     """Show registration page"""
     
     return render_template('new_user.html')
-
-
-# @app.route('/profile')
-# def show_profile():
-#     """Shows the profile of the user that is currently in session"""
-
-#     user = crud.get_user_by_username(session.get('username'))
-    
-#     if user is None:
-#         flash('Please log in to view your profile')
-#         return redirect('/')
-        
-#     return render_template('profile.html', user=user)
 
 
 @app.route('/profile', methods=['GET', 'POST'])
