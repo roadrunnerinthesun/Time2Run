@@ -5,7 +5,6 @@
 {% block body %}
 <head>
 
-  
 
   <!-- Load Bootstrap -->
     <!-- CSS only -->
@@ -17,6 +16,15 @@
   <!-- Load stylesheets -->
 
 </head>
+
+<body>
+  <div>
+    <p>Surprise me with my next Run
+      <button id="get-run-button" class="btn btn-primary mt-2">Ready </button>
+    </p>
+    <div id="run-text"></div>
+  </div>    
+</body>
 
 <body>
     {% if 'email' in session %}
@@ -33,13 +41,13 @@
   <div>
   </div>
  <!-- Nav Bar Spanning across the length of top of screen -->
- {% endblock %}
+ 
 
 <!-- Homepage Dashboard -->
-<div>
-  
-</div>    
+<script src="/static/js/which_one_fun.js"></script>
+
 
 </body>
 
 </html>
+{% endblock %}
