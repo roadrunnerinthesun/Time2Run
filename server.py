@@ -22,9 +22,13 @@ app.jinja_env.underfined = StrictUndefined
 
 RANDOM_RUN = [
     "Run | <b>Life is short. Running makes it seem longer</b>.",
+    "Run | <b>If it doesn't challenge you, it won't change you</b>.",
     "Sprint | <b>Most people never run far enough on their first wind to find out they've got a second</b>.",
+    "Sprint | <b>Sprint fast. Because zombies will eat the untrained ones first!</b>",
     "Fast Walk | <b>All truly great thoughts are conceived while walking</b>.",
+    "Fast Walk | <b>Go as long as you can, and then take another step</b>.",
     "Light Jog | <b>Jogging is very beneficial. It's good for your legs and your feet. It's also very good for the ground. It makes it feel needed</b>.",
+    "Light Jog | <b>The will to win means nothing without the will to prepare</b>.",
 ]
 
 @app.route('/homepage')
