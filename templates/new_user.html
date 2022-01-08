@@ -10,7 +10,7 @@
             <p></p>
             Last Name  <input id="lname" type="Last Name" placeholder="Doe" required name="lname">
             <p></p>
-            Email  <input id="email" type="Email" placeholder="Janedoe@hello.com" required name="email">
+            Email  <input id="email" type="Email" placeholder="Janedoe@hello.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required name="email">
             <p></p>
             Username <input id="username" type="Username" placeholder="callmejane" required name="username">
             <p></p>
@@ -26,7 +26,7 @@
         </form>
         <p></p>
         <form action="/" class="inline">
-            <button class="float-left submit-button" type="submit"> Back to Login</button>
+            <button class="btn btn-outline-secondary" type="submit"> Back to Login</button>
         </form>
     </div>
 
