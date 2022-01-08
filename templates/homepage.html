@@ -28,7 +28,7 @@
 
 <body>
     {% if 'email' in session %}
-      <h1>{{'Welcome Back!'}} {{session['username']}}</h1>
+      <h1>{{'Welcome Back,'}} {{session['username']}}{{'!'}}</h1>
             <ul>{% for item in user.activities %}</ul>
             Activity Name: {{item.activity_name}}</li>
               <li>Distance: {{item.distance}} miles</li>
