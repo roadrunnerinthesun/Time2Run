@@ -83,7 +83,8 @@ def calculate_total_distance(username):
     total_distance = 0
 
     for activity in user.activities:
-        total_distance = total_distance + activity.distance
+        if activity.distance:
+            total_distance = total_distance + activity.distance
     
     return total_distance
 
@@ -95,7 +96,8 @@ def calculate_total_time(username):
     total_time = 0
 
     for activity in user.activities:
-        total_time = total_time + activity.time_in_min
+        if activity.distance:
+            total_time = total_time + activity.time_in_min
     
     return total_time
 
