@@ -139,8 +139,6 @@ def view_stats():
     else:
         total_distance = crud.calculate_total_distance(session.get('username'))
         total_time = crud.calculate_total_time(session.get('username'))
-
-        
         
         one_week = get_total_distance(crud.seven_day_distance(session.get('username')))
         two_weeks = get_total_distance(crud.fourteen_day_distance(session.get('username')))
