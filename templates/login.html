@@ -8,7 +8,8 @@
         <p>
           Email <input type="text" placeholder="your-email@here" required name="email">
         </p><p>
-          Password <input type="password" placeholder="●●●●●●●●●" required name="password">
+          Password <input id="password" type="password" placeholder="●●●●●●●●●" required name="password">
+          <input type="checkbox" onclick="showPassword()">Show Password
         </p>
         <button type="submit">Login</button>
     </form>
@@ -17,4 +18,8 @@
         <button type="submit">Create Account</button>
     </form>
 </div>
+
+
+<script src="/static/js/login_show_password.js"></script>
+
 {% endblock %}
