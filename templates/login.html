@@ -6,7 +6,7 @@
 <h1>Time2Run</h1> 
     <form action="/user_login" method="POST">
         <p>
-          Email <input type="text" placeholder="your-email@here" required name="email">
+          Email <input type="text" placeholder="your-email@here" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required name="email">
         </p><p>
           Password <input id="password" type="password" placeholder="●●●●●●●●●" required name="password">
           <input type="checkbox" onclick="showPassword()">Show Password
