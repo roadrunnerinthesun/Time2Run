@@ -78,3 +78,33 @@ img {
     margin-top:45px;
     color: rgb(250, 243, 243);
 }
+
+
+/* Record Run */
+.submit-button {
+    background-color: #0b683c;
+    color: #FFFF;
+    border-radius: 10px;
+    padding: 5px 25px;
+    border: 0;
+    font-size: 1.18rem;
+}
+
+.submit-button:hover {
+    background-color: #8214dc;
+    color: #FFFF;
+}
+
+.reset-button {
+    background-color: #d41010;
+    color: #FFFF;
+    border-radius: 10px;
+    padding: 5px 25px;
+    border: 0;
+    font-size: 1.18rem;
+}
+
+.reset-button:hover {
+    background-color: #dcbe14;
+    color: #FFFF;
+}
