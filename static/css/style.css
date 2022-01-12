@@ -12,6 +12,8 @@ img {
     height: 75%; 
 }
 
+
+
 .message_flash {
     font-family: 'Gayathri', sans-serif;
     color: rgb(250, 243, 243);
@@ -38,6 +40,8 @@ img {
     text-align: left;
 }
 
+
+
 .footer {
     text-align: center;
     padding: 5px;
@@ -45,6 +49,21 @@ img {
     font-size: 0.9rem;
 }
 
+#submit-login {
+    display: inline-block;
+    padding: 10px;
+    color: #ffffff;
+    border: 0;
+    float: left !important; 
+    margin:5px;
+}
+
+form input[type="submit"] {
+    display: inline-block;
+    padding: 10px;
+    color: #ffffff;
+    float: left !important;
+} 
 
 /* New User Form */
 .new-user-form {
@@ -77,7 +96,7 @@ img {
     background-color: #0b683c;
     color: #FFFF;
     border-radius: 10px;
-    padding: 5px 25px;
+    padding: 10px 25px;
     border: 0;
     font-size: 1.18rem;
 }
@@ -91,7 +110,7 @@ img {
     background-color: #d41010;
     color: #FFFF;
     border-radius: 10px;
-    padding: 5px 25px;
+    padding: 10px 55px;
     border: 0;
     font-size: 1.18rem;
 }
