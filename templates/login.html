@@ -2,24 +2,35 @@
 {% extends 'base.html' %}
 {% block title %}Login{% endblock %}
 
-{% block body %} 
-<h1>Time2Run</h1> 
-    <form action="/user_login" method="POST">
-        <p>
-          Email <input type="text" placeholder="your-email@here" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required name="email">
-        </p><p>
-          Password <input id="password" type="password" placeholder="●●●●●●●●●" required name="password">
-          <input type="checkbox" onclick="showPassword()">Show Password
-        </p>
-        <button type="submit">Login</button>
-    </form>
-    <p></p>
-    <form action="/registration">
-        <button type="submit">Create Account</button>
-    </form>
+{% block head %}
+<link rel="stylesheet" href="/static/css/style.css" />
+<link rel="icon" href="/static/run.jpg">
+
+{% endblock head %}
+
+{% block body %}
+<div id="container">
+<div class="body" id="body">
+  <h1>Time2Run</h1> 
+      <form action="/user_login" method="POST">
+          <p>
+          <input type="text" placeholder="EMAIL" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required name="email">
+          </p><p>
+            <input id="password" type="password" placeholder="PASSWORD" required name="password">
+            <input type="checkbox" onclick="showPassword()"><em>Show Password</em>
+          </p>
+          <button type="submit" class="btn btn-outline-secondary">Login</button>
+      </form>
+      <p></p>
+      <form action="/registration">
+          <button type="submit" class="btn btn-outline-secondary">Create Account</button>
+      </form>
 </div>
 
 
+</div> 
+
 <script src="/static/js/login_show_password.js"></script>
+
 
 {% endblock %}
