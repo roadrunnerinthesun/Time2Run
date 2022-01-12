@@ -1,0 +1,48 @@
+body {
+    background-image:  url('/static/img/run.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: fixed;
+    position: relative;
+    height: 75%;}
+
+img {
+    max-width:75%;
+    height: 75%;
+}
+
+.message_flash {
+    margin-top:2%;
+    color: rgb(250, 243, 243);
+    font-family: 'Gayathri', sans-serif;
+    margin:15px;
+    text-align: center;
+    
+}
+
+.body {
+    font-family: 'Gayathri', sans-serif; 
+    text-align: left;
+    margin: auto;
+    width: 20%;
+    color: rgb(223, 184, 58);
+    margin-top:45px;
+}
+
+.new-user-form {
+    font-family: 'Gayathri', sans-serif; 
+    text-align: left;
+    margin: auto;
+    width: 22%;
+    margin-top:45px;
+}
+
+
+.validation {
+    font-family: 'Gayathri', sans-serif; 
+    text-align: left;
+    margin: auto;
+    width: 22%;
+    margin-top:45px;
+    color: rgb(250, 243, 243);
+}
