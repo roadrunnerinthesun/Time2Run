@@ -1,18 +1,33 @@
 <!DOCTYPE html>
 <html>
   <title>{% block title %}Time2Run{% endblock %}</title>
+
+  <!-- Bootstrap CSS import -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" 
+  rel="stylesheet"
+  integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" 
+  crossorigin="anonymous">
+  <!-- googleFonts import-->
+  <link href="https://fonts.googleapis.com/css2?family=Gayathri:wght@400;700&family=Yantramanav:wght@900&display=swap" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="/static/css/style.css">
+
 <head>
+  <link rel="icon" type="image/jpg" href="/static/running-transparent-background.jpg"/> 
+  <!-- FAVICON ABOVE NOT WORKING -->
+
   <!-- Nav Bar Spanning across the length of top of screen -->
   <div id="nav-bar-left">
     <nav class="nav">
-      <a class="navbar-font" aria-current="page" style="color:darkblue;" href="#"></a>
-      <a class="nav-link" style="color:darkblue;" href="/homepage">Homepage</a>
-      <a class="nav-link" style="color:darkblue;" href="/profile">Profile</a>
-      <a class="nav-link" style="color:darkblue;" href="/record_run">Record Run</a>
-      <a class="nav-link" style="color:darkblue;" href="/view_stats">View Stats</a>
-      <a class="nav-link" style="color:darkblue;" href="/logout">Logout</a>
-    </nav>
-  <div>               
+        <a class="navbar-font" aria-current="page" style="color:rgb(255, 255, 255);" href="#"></a>
+        <a class="nav-link" style="color:rgb(255, 255, 255);" href="/homepage">Homepage</a>
+        <a class="nav-link" style="color:rgb(255, 255, 255);" href="/profile">Profile</a>
+        <a class="nav-link" style="color:rgb(255, 255, 255);" href="/record_run">Record Run</a>
+        <a class="nav-link" style="color:rgb(255, 255, 255);" href="/view_stats">View Stats</a>
+        <a class="nav-link" style="color:rgb(255, 255, 255);" href="/logout">Logout</a>
+      </nav>
+  </div>               
 </head>
 <body>{% block body %} {% endblock %}
 <div>
