@@ -115,10 +115,19 @@ form input[type="submit"] {
     font-size: 1.18rem;
 }
 
+.record-run {
+    font-family: 'Gayathri', sans-serif; 
+    color: #FFFF;
+    padding: 20px;
+}
+
+
+
 .reset-button:hover {
     background-color: #dcbe14;
     color: #FFFF;
 }
+
 
 /* Homepage */
 .random-run {
@@ -128,6 +137,12 @@ form input[type="submit"] {
     width: 20%;
     margin-top:45px;
     color: rgb(250, 243, 243);
+}
+
+
+.profile-page {
+    color: rgb(250, 243, 243);
+    padding: 20px;
 }
 
 
@@ -141,5 +156,16 @@ form input[type="submit"] {
 }
 
 
-/* Profile */
+/* View Stats*/
+.stats {
+    font-family: 'Gayathri', sans-serif; 
+    color: rgb(250, 243, 243);
+    padding: 20px;
+}
 
+
+/* profile*/
+.profile-page {
+    font-family: 'Gayathri', sans-serif; 
+    color: rgb(250, 243, 243);
+}
