@@ -14,23 +14,23 @@
   <h1>Time2Run</h1> 
       <form action="/user_login" method="POST">
           <p>
-          <input type="text" placeholder="EMAIL" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required name="email">
+          <input type="email" placeholder="EMAIL" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required name="email">
           </p><p>
             <input id="password" type="password" placeholder="PASSWORD" required name="password">
             <input type="checkbox" onclick="showPassword()"><em>Show Password</em>
           </p>
-          <button type="submit" class="btn btn-outline-secondary">Login</button>
+          <button type="submit" class="btn btn-dark btn-sm">Login</button>
       </form>
       <p></p>
       <form action="/registration">
-          <button type="submit" class="btn btn-outline-secondary">Create Account</button>
+          <button type="submit" class="btn btn-dark btn-sm">Create Account</button>
       </form>
 </div>
-
-
 </div> 
 
+<div class="footer">
+  <p>&copy; Roadrunnerinthesun @ Hackbright 2022</p>
+</div>
+
 <script src="/static/js/login_show_password.js"></script>
-
-
 {% endblock %}
