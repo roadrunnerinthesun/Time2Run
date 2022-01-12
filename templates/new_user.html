@@ -2,21 +2,26 @@
 {% extends 'base.html' %}
 {% block title%}Create Account{% endblock %}
 
+{% block head %}
+<link rel="stylesheet" href="/static/css/style.css" />
+{% endblock head %}
+
  {% block body %}
-    <div class="container-fluid">
+    <div class="new-user-form" style="color:rgb(255, 255, 255);">
         <form id="create-account" action="/new_user" method="POST">
             <p></p>
-            First Name  <input id="fname" type="First Name" placeholder="Jane" required name="fname">
+            <input id="fname" type="First Name" placeholder="FIRST NAME" required name="fname">
             <p></p>
-            Last Name  <input id="lname" type="Last Name" placeholder="Doe" required name="lname">
+            <input id="lname" type="Last Name" placeholder="LAST NAME" required name="lname">
             <p></p>
-            Email  <input id="email" type="Email" placeholder="Janedoe@hello.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required name="email">
+            <input id="email" type="Email" placeholder="EMAIL" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required name="email">
             <p></p>
-            Username <input id="username" type="Username" placeholder="callmejane" required name="username">
+            <input id="username" type="Username" placeholder="USERNAME" required name="username">
             <p></p>
-            Password  <input id="password" type="Password" placeholder="●●●●●●●●●" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{9,}" required name="password">
-                      <input type="checkbox" onclick="viewPassword()">Show Password
-            <div>
+            <input id="password" type="Password" placeholder="PASSWORD" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{9,}" required name="password">
+            <input type="checkbox" onclick="viewPassword()"><em>Show Password</em>
+            <p></p>
+            <div id="validation">
                 <small><em>● Password must contain one number
                 <br>● One uppercase and one lowercase letter 
                 <br>● At least 9 or more characters in length</em></small>
