@@ -1,5 +1,7 @@
 body {
     background-image:  url('/static/img/run.jpg');
+    /* background-size: 300px 100px; */
+    padding: 25px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: fixed;
@@ -7,7 +9,6 @@ body {
     height: 75%;}
 
 img {
-    max-width:75%;
     height: 75%;
 }
 
