@@ -4,14 +4,14 @@
 {% block js %}{% endblock %}
 
 {% block body %}
-
-<h1><label><strong>Your Running Stats</strong></label></h1>
-    {% if user %}
-        <h2>Total Distance:<em> {{ total_distance }} miles</em></h2>
-        <h2>Total Time in minutes:<em> {{ total_time }} minutes</em></h2>   
-        <h2>Total Distance for 7 days:<em> {{one_week}} miles</em></h2>
-        <h2>Total Distance for 14 days:<em> {{two_weeks}} miles</em></h2>    
-        <h2>Total Distance for 30 days:<em> {{four_weeks}} miles</em></h2>        
-    {% endif %}
-    
+<div class="stats" id="stats">
+    <h1><label><strong>Your Running Stats</strong></label></h1>
+        {% if user %}
+            <h2>Total Distance:<em> {{ total_distance }} miles</em></h2>
+            <h2>Total Time in minutes:<em> {{ total_time }} minutes</em></h2>   
+            <h2>Total Distance for 7 days:<em> {{one_week}} miles</em></h2>
+            <h2>Total Distance for 14 days:<em> {{two_weeks}} miles</em></h2>    
+            <h2>Total Distance for 30 days:<em> {{four_weeks}} miles</em></h2>        
+        {% endif %}
+</div>
 {% endblock %}
