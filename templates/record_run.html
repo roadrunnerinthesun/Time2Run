@@ -10,42 +10,44 @@
 {% endblock head %}
 
 {% block body %}
-<form action="/run_activity" method="POST">
-
-    <div class="record" id="record">
-    <h1><label><strong>Record Your Run</strong></label></h1>
-    </div>
-    <div class="activity name" id="activity name" required> 
-        <label for="activity name"> Activity Intensity</label>
-        <select name="activity name" id="activity name" required>
-            <option value="">Select an Option Below</option>
-            <option value="Fast Walk">Fast Walk</option>
-            <option value="Light Jog">Light Jog</option>
-            <option value="Run">Run</option>
-            <option value="Sprint">Sprint</option>
-        </select>
-    <!-- </div> -->
-    <p></p>
-    <p></p>
-   
-    <!-- <div class="duration" id="duration"> -->
-        <label for="time in min">Duration in Mins</label>
-        <input type="number" name="time in min" step="1" required>
-    <p></p>
-    <p></p>
-    <!-- <div class="distance" id="distance"> -->
-            <label for="distance">Distance in Miles</label>
-            <input type="number" name="distance" step="0.1" required>
-        </select>
+<div class="record-run" id="record-run" required> 
+    <form action="/run_activity" method="POST">
+        <div class="record" id="record">
+        <h1><label><strong>Record Your Run</strong></label></h1>
+        </div>
+        <div class="activity-name" id="activity-name" required> 
+            <label for="activity name"> Activity Intensity</label>
+            <select name="activity name" id="activity-name" required>
+                <option value="">Select an Option Below</option>
+                <option value="Fast Walk">Fast Walk</option>
+                <option value="Light Jog">Light Jog</option>
+                <option value="Run">Run</option>
+                <option value="Sprint">Sprint</option>
+            </select>
+        </div>
         <p></p>
         <p></p>
-        <label for="date of activity"></label>
-            <option value="">Enter Activity Date</option>
-            <input type="date" name="date of activity" required>
-    <p></p>
-            <input type="submit" value="Submit" class="submit-button"/>
-            <input type="reset" value="Reset" class="reset-button"/>
+    
+        <div class="duration" id="duration">
+            <label for="time in min">Duration in Mins</label>
+            <input type="number" name="time in min" step="1" required>
+        </div>
         <p></p>
-    </div>
-    </form>
+        <p></p>
+        <div class="distance" id="distance">
+                <label for="distance">Distance in Miles</label>
+                <input type="number" name="distance" step="0.1" required>
+            </select>
+            <p></p>
+            <p></p>
+            <label for="date of activity" id="date-of-activity"></label>
+                <option value="">Enter Activity Date</option>
+                <input type="date" name="date of activity" required>
+        <p></p>
+                <input type="submit" value="Submit" class="submit-button"/>
+                <input type="reset" value="Reset" class="reset-button"/>
+            <p></p>
+        </div>
+        </form>
+</div>
 {% endblock %}
