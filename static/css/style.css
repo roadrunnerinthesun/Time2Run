@@ -17,6 +17,9 @@ img {
     color: rgb(250, 243, 243);
     margin:15px;
     text-align: center;   
+    border: 2px solid red;
+    padding: 10px;
+    border-radius: 25px;
 }
 
 
@@ -34,7 +37,6 @@ img {
 	height: 400px;
     text-align: left;
 }
-
 
 .footer {
     text-align: center;
@@ -69,16 +71,6 @@ img {
     color: rgb(250, 243, 243);
 }
 
-/* Homepage */
-.random-run {
-    font-family: 'Gayathri', sans-serif; 
-    text-align: left;
-    margin: auto;
-    width: 20%;
-    margin-top:45px;
-    color: rgb(250, 243, 243);
-}
-
 
 /* Record Run */
 .submit-button {
@@ -108,3 +100,27 @@ img {
     background-color: #dcbe14;
     color: #FFFF;
 }
+
+/* Homepage */
+.random-run {
+    font-family: 'Gayathri', sans-serif; 
+    text-align: left;
+    margin: auto;
+    width: 20%;
+    margin-top:45px;
+    color: rgb(250, 243, 243);
+}
+
+
+.activities {
+    font-family: 'Gayathri', sans-serif; 
+    text-align: left;
+    margin: auto;
+    width: 20%;
+    margin-top:45px;
+    color: rgb(250, 243, 243);
+}
+
+
+/* Profile */
+
