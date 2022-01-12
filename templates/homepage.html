@@ -1,26 +1,15 @@
 <!DOCTYPE html>
 {% extends 'base.html' %}
 {% block head %}Homepage{% endblock %}
-
-{% block body %}
 <head>
-
-
-  <!-- Load Bootstrap -->
-    <!-- CSS only -->
-
-  
-  <!-- Bootstrap Icons Here-->
- 
-
-  <!-- Load stylesheets -->
-
+  <link rel="stylesheet" href="/static/css/homepage.css" />
 </head>
+{% block body %}
 
 <body>
-  <div>
+  <div class="body" id="body"></div>
     <p>Surprise me with my next Run
-      <button id="get-run-button" class="btn btn-primary mt-2">Ready </button>
+      <button id="get-run-button" class="btn btn-outline-dark">Ready </button>
     </p>
     <div id="run-text"></div>
   </div>    
@@ -36,17 +25,38 @@
               <li>Date of Activity: {{item.date_of_activity.strftime('%a, %B %d, %Y')}}</li>
               <p></p>
       {% endfor %}
-    {% endif %}
+    {% endif %} 
+
+    <div class="container" style="padding-top: 60px;">
     
-  <div>
+      <!-- MODAL POPUP -->
+      <div class="modal" id="health">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button class="close" type="button" data-dismiss="modal">X</button>
+              <span aria-hidden="true">&times;</span>
+              <h2 class="close" type="modal-title">Health Reminder</h2>
+            </div>
+            <div class="modal-body">
+              <p>Always seek the advice of your physician or other qualified health care provider with any</p>
+              questions you may have regarding medical conditionS or treatmentS before undertaking
+              a new health care regimen, and never disregard professional medical advice or delay in seeking
+              it because of wanting to get started  with tracking your runs! 
+            </div>
+          </div> <!--end modal-content-->
+        </div> <!--end modal-dialog-->
+      </div> <!--end modal-->
+    </div>
+  <div class="panel-footer">
+    <a href="#" data-toggle="modal"
+    data-target="#health">Health Reminder </a>
   </div>
- <!-- Nav Bar Spanning across the length of top of screen -->
- 
 
 <!-- Random Run JS -->
 <script src="/static/js/random_run.js"></script>
 
-
 </body>
 </html>
+
 {% endblock %}
