@@ -5,6 +5,10 @@
 {% block js %}
 {% endblock %}
 
+{% block head %}
+<link rel="stylesheet" href="/static/css/style.css" />
+{% endblock head %}
+
 {% block body %}
 <form action="/run_activity" method="POST">
 
@@ -39,12 +43,8 @@
             <option value="">Enter Activity Date</option>
             <input type="date" name="date of activity" required>
     <p></p>
-            <input type="submit" value="Submit" 
-                    style="background-color: rgb(108, 160, 59); 
-                        color: white" />
-            <input type="reset" value="Reset" 
-                     style="background-color: red; 
-                        color: white" />
+            <input type="submit" value="Submit" class="submit-button"/>
+            <input type="reset" value="Reset" class="reset-button"/>
         <p></p>
     </div>
     </form>
