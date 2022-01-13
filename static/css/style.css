@@ -39,6 +39,11 @@ img {
     text-align: left;
 }
 
+input-field {
+    border-radius: 30%;
+    width: 200px;
+    height: 150px;   
+}
 
 
 .footer {
@@ -187,4 +192,21 @@ tr:hover {
 .profile-page {
     font-family: 'Gayathri', sans-serif; 
     color: rgb(250, 243, 243);
+}
+
+.grid { 
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 0px;
+    align-items: stretch;
+    justify-items: stretch;
+    margin:5px;
+    padding-top: 60px;
+    }
+
+.grid img {
+    border: 1px solid #ccc;
+    box-shadow: 50px 50px 50px 0px  rgba(0,0,0,0.3);
+    max-width: 90%;
+    padding: 30px;
 }
