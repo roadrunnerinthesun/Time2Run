@@ -7,21 +7,21 @@
     <div>
     <h1>Profile Page</h1>
 
-    <h4>First Name: {{user.fname}} </h4>
-    <h4>Last Name: {{user.lname}} </h4>
-    <h4>Username: {{user.username}} </h4>
+    <h4><i class="fas fa-user"></i> First Name: {{user.fname}} </h4>
+    <h4><i class="fas fa-user"></i> Last Name: {{user.lname}} </h4>
+    <h4><i class="fas fa-running"></i> Username: {{user.username}} </h4>
     <div>
-    <h4>Password:
+    <h4><i class="fas fa-unlock-alt"></i> Password:
         {% for letter in user.password %}
             *
         {% endfor %}</h4>
     </div>
-    <h4>Date of Birth: 
+    <h4><i class="fas fa-birthday-cake"></i> Date of Birth: 
         {% if user.date_of_birth == None: %}
             Please update!
             <form id="profile" action="/profile" method="POST">
                 <p></p>
-                <p>Date of Birth  <input id="date_of_birth" type="date" placeholder="mm/dd/yyy" min="01-01-1900" max="today" required name="date_of_birth"></p>
+                <p><i class="fas fa-birthday-cake"></i> Date of Birth  <input id="date_of_birth" type="date" placeholder="mm/dd/yyy" min="01-01-1900" max="today" required name="date_of_birth"></p>
                 <br>
                 <div>
             </form>
