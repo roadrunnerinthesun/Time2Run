@@ -7,8 +7,8 @@
 
   <div class="random-run" id="random-run">
     <p>Surprise me with my next Run</p>
-      <button id="get-run-button" class="btn btn-dark btn-lg">Ready </button>
-    
+      <button id="get-run-button" class="btn btn-dark btn-sm">Ready </button>
+      <br></br>
     <div id="run-text" style="color:rgb(255, 255, 255);"></div>
   </div>    
 
@@ -16,10 +16,12 @@
 
   <div class="profile-page" id="profile-page">
     {% if 'email' in session %}
-      <h1>{{'Welcome Back,'}} {{session['username']}}{{'!'}}</h1>
+    <h1>{{'Welcome Back,'}} {{session['username']}}{{'!'}}</h1>
     {% endif %} 
   </div>
   <table>
+    <tr>
+      <th colspan="4">Look How Far You've Run</th></tr>
             {% for item in user.activities %}
           <tr><div class="activities" id="activities"></div></tr>
               <td>Activity Name: {{item.activity_name}}</td>
