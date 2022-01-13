@@ -1,41 +1,40 @@
-<!DOCTYPE html>
 {% extends 'base.html' %}
-{% block head %}Homepage{% endblock %}
-<head>
+{% block head %}
+
   <link rel="stylesheet" href="/static/css/style.css" />
-</head>
+{% endblock %}
 {% block body %}
 
-<body>
-  <div class="random-run" id="random-run"></div>
-    <p>Surprise me with my next Run
+  <div class="random-run" id="random-run">
+    <p>Surprise me with my next Run</p>
       <button id="get-run-button" class="btn btn-dark btn-lg">Ready </button>
-    </p>
+    
     <div id="run-text" style="color:rgb(255, 255, 255);"></div>
   </div>    
-</body>
 
-<body>
+
+
   <div class="profile-page" id="profile-page">
     {% if 'email' in session %}
       <h1>{{'Welcome Back,'}} {{session['username']}}{{'!'}}</h1>
-            <ul>{% for item in user.activities %}</ul>
-            <div class="activities" id="activities">
-            Activity Name: {{item.activity_name}}</li>
-              <li>Distance: {{item.distance}} miles</li>
-              <li>Time In Mins: {{item.time_in_min}} minutes</li>
-              <li>Date of Activity: {{item.date_of_activity.strftime('%a, %B %d, %Y')}}</li>
-              <p></p>
-            </div>
-  </div>
-      {% endfor %}
     {% endif %} 
+  </div>
+  <table>
+            {% for item in user.activities %}
+          <tr><div class="activities" id="activities"></div></tr>
+              <td>Activity Name: {{item.activity_name}}</td>
+              <td>Distance: {{item.distance}} miles</td>
+              <td>Time In Mins: {{item.time_in_min}} minutes</td>
+              <td>Date of Activity: {{item.date_of_activity.strftime('%a, %B %d, %Y')}}</td>  
+      {% endfor %}
+    </table>
+    
 
 
 <!-- Random Run JS -->
 <script src="/static/js/random_run.js"></script>
 
-</body>
-</html>
+
+
 
 {% endblock %}
