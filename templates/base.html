@@ -29,16 +29,25 @@
       </nav>
   </div>               
 </head>
-<body>{% block body %} {% endblock %}
+
+
+
+{% block head %} {% endblock %}
+<body>
+
+{% block body %} 
+
+{% endblock %}
+</body>
 <div>
-    <!-- Show flashed messages -->
-    {% with messages = get_flashed_messages() %}
-        {% for message in get_flashed_messages() %}
-        <p></p>
-        <div class="message_flash">{{ message }}</div>
-        {% endfor %}
-    {% endwith %}
+  <!-- Show flashed messages -->
+  {% with messages = get_flashed_messages() %}
+      {% for message in get_flashed_messages() %}
+      <p></p>
+      <div class="message_flash">{{ message }}</div>
+      {% endfor %}
+  {% endwith %}
 </div>
 
-</body>
+
 </html>
