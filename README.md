@@ -3,6 +3,8 @@
 
 *Time2Run* is a fullstack web application that allows users to log their running activity and view stats on their logged activities. This simple solution allows users to keep track their running intensity level, distance and time spent on a particular activity. Users will need to create an account in order to keep track of their activity history. If users are lacking inspiration for the day they can select a random run generator which will serve them with a running option. Users are able to look back at their total running distance of their activities for the previous 7 days, 14 days and 30 days.
 
+***
+
 ![Homepage](https://raw.githubusercontent.com/roadrunnerinthesun/Time2Run/master/static/img/Login.png)
 ![Registration](https://raw.githubusercontent.com/roadrunnerinthesun/Time2Run/master/static/img/Registration.png)
 ![Record Your Run](https://raw.githubusercontent.com/roadrunnerinthesun/Time2Run/master/static/img/record-your-run.png)
