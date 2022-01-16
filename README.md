@@ -20,4 +20,4 @@ Javascript, AJAX
 I'd like to allow users to view their stats by creating their own search parameters, search by activity and apply some visual representation of their data.
 
 ###### Client Side Rendering
-In a future iteration, I'd like to transition my server side rendering app to a client side rendering app using react to allow for faster web optimization.
+In a future iteration, I'd like to transition my server side rendering app to a client side rendering app using React to allow for faster web optimization.
