@@ -8,6 +8,8 @@
 ![Record Your Run](https://raw.githubusercontent.com/roadrunnerinthesun/Time2Run/master/static/img/record-your-run.png)
 ![View Stats](https://raw.githubusercontent.com/roadrunnerinthesun/Time2Run/master/static/img/view-stats.png)
 
+***
+
 #### Technologies
 Python, Flask, SQLAlchemy, PostgreSQL,
 HTML, CSS, Bootstrap, Jinja2
