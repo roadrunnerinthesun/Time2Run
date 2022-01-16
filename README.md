@@ -5,7 +5,7 @@
 
 ***
 ### User Login Page
-![Homepage](https://raw.githubusercontent.com/roadrunnerinthesun/Time2Run/master/static/img/Login.png)
+![Homepage](/static/img/Login.png)
 Users can login using valid credentials or directed otherwise if existing user
 
 ### Registration
