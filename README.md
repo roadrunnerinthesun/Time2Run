@@ -9,15 +9,21 @@
 Users can login using valid credentials or directed otherwise if existing user
 
 ### Registration
-![Registration](https://raw.githubusercontent.com/roadrunnerinthesun/Time2Run/master/static/img/Registration.png)
+![Registration](/static/img/Registration.png)
+
+
 New Users can register and guided accordingly to meet registration criteria, they are redirected to the login page to gain access to the app.
 
 ### Record Your Run
-![Record Your Run](https://raw.githubusercontent.com/roadrunnerinthesun/Time2Run/master/static/img/record-your-run.png)
+![Record Your Run](/static/img/record-your-run.png)
+
+
 Logged in users can record their running activity by intensity, duration and distance. These are logged and shown on the users Homepage.
 
 ### View Stats
-![View Stats](https://raw.githubusercontent.com/roadrunnerinthesun/Time2Run/master/static/img/view-stats.png)
+![View Stats](/static/img/view-stats.png)
+
+
 Users are able to view total distance for 7, 14 and 30 days periods. 
 
 ***
