@@ -6,6 +6,8 @@
 ***
 ### User Login Page
 ![Homepage](/static/img/Login.png)
+
+
 Users can login using valid credentials or directed otherwise if existing user
 
 ### Registration
