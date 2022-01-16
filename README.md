@@ -9,7 +9,7 @@
 ![View Stats](https://raw.githubusercontent.com/roadrunnerinthesun/Time2Run/master/static/img/view-stats.png)
 
 #### Technologies
-Python, Flask, SQLAlchemy, PostgreSQL
+Python, Flask, SQLAlchemy, PostgreSQL,
 HTML, CSS, Bootstrap, Jinja2
 Javascript, AJAX
 
